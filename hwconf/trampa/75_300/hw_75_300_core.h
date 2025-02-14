@@ -36,20 +36,13 @@
 #define HW_HAS_PHASE_FILTERS
 
 // Macros
-#ifdef HW75_300_VEDDER_FIRST_PCB
-#define LED_GREEN_GPIO			GPIOB
-#define LED_GREEN_PIN			0
-#define LED_RED_GPIO			GPIOB
-#define LED_RED_PIN				1
-#else
-#define LED_GREEN_GPIO			GPIOB
+#define LED_GREEN_GPIO		GPIOB
 #define LED_GREEN_PIN			5
 #define LED_RED_GPIO			GPIOB
 #define LED_RED_PIN				7
-#endif
 
-#define LED_GREEN_ON()			palSetPad(LED_GREEN_GPIO, LED_GREEN_PIN)
-#define LED_GREEN_OFF()			palClearPad(LED_GREEN_GPIO, LED_GREEN_PIN)
+#define LED_GREEN_ON()		palSetPad(LED_GREEN_GPIO, LED_GREEN_PIN)
+#define LED_GREEN_OFF()		palClearPad(LED_GREEN_GPIO, LED_GREEN_PIN)
 #define LED_RED_ON()			palSetPad(LED_RED_GPIO, LED_RED_PIN)
 #define LED_RED_OFF()			palClearPad(LED_RED_GPIO, LED_RED_PIN)
 
@@ -61,7 +54,7 @@
 #define PHASE_FILTER_PIN		11
 #endif
 #define PHASE_FILTER_ON()		palSetPad(PHASE_FILTER_GPIO, PHASE_FILTER_PIN)
-#define PHASE_FILTER_OFF()		palClearPad(PHASE_FILTER_GPIO, PHASE_FILTER_PIN)
+#define PHASE_FILTER_OFF()	palClearPad(PHASE_FILTER_GPIO, PHASE_FILTER_PIN)
 
 #define AUX_GPIO				GPIOC
 #define AUX_PIN					12
@@ -109,15 +102,9 @@
 #define ADC_IND_EXT				6
 #define ADC_IND_EXT2			7
 #define ADC_IND_EXT3			10
-#ifdef HW75_300_VEDDER_FIRST_PCB
-#define ADC_IND_TEMP_MOS		8
-#define ADC_IND_TEMP_MOS_2		8
-#define ADC_IND_TEMP_MOS_3		8
-#else
 #define ADC_IND_TEMP_MOS		8
 #define ADC_IND_TEMP_MOS_2		15
 #define ADC_IND_TEMP_MOS_3		16
-#endif
 #define ADC_IND_TEMP_MOTOR		9
 #define ADC_IND_VREFINT			12
 
@@ -149,17 +136,7 @@
 
 #define NTC_RES_MOTOR(adc_val)	(10000.0 / ((4095.0 / (float)adc_val) - 1.0)) // Motor temp sensor on low side
 
-#ifdef HW75_300_VEDDER_FIRST_PCB
-#define NTC_TEMP_MOTOR(beta)	(-20)
-#else
 #define NTC_TEMP_MOTOR(beta)	(1.0 / ((logf(NTC_RES_MOTOR(ADC_Value[ADC_IND_TEMP_MOTOR]) / 10000.0) / beta) + (1.0 / 298.15)) - 273.15)
-#endif
-
-#ifndef HW75_300_VEDDER_FIRST_PCB
-#define NTC_TEMP_MOS1()			(1.0 / ((logf(NTC_RES(ADC_Value[ADC_IND_TEMP_MOS]) / 10000.0) / 3380.0) + (1.0 / 298.15)) - 273.15)
-#define NTC_TEMP_MOS2()			(1.0 / ((logf(NTC_RES(ADC_Value[ADC_IND_TEMP_MOS_2]) / 10000.0) / 3380.0) + (1.0 / 298.15)) - 273.15)
-#define NTC_TEMP_MOS3()			(1.0 / ((logf(NTC_RES(ADC_Value[ADC_IND_TEMP_MOS_3]) / 10000.0) / 3380.0) + (1.0 / 298.15)) - 273.15)
-#endif
 
 // Voltage on ADC channel
 #define ADC_VOLTS(ch)			((float)ADC_Value[ch] / 4096.0 * V_REG)
@@ -183,7 +160,7 @@
 #define HW_ADC_EXT2_PIN			6
 
 // UART Peripheral
-#define HW_UART_DEV				SD3
+#define HW_UART_DEV				  SD3
 #define HW_UART_GPIO_AF			GPIO_AF_USART3
 #define HW_UART_TX_PORT			GPIOB
 #define HW_UART_TX_PIN			10
@@ -193,7 +170,7 @@
 #if defined(HW75_300_REV_2) || defined(HW75_300_REV_3)
 // Permanent UART Peripheral (for NRF51)
 #define HW_UART_P_BAUD			115200
-#define HW_UART_P_DEV			SD4
+#define HW_UART_P_DEV			  SD4
 #define HW_UART_P_GPIO_AF		GPIO_AF_UART4
 #define HW_UART_P_TX_PORT		GPIOC
 #define HW_UART_P_TX_PIN		10
@@ -211,16 +188,16 @@
 
 // ICU Peripheral for servo decoding
 #define HW_USE_SERVO_TIM4
-#define HW_ICU_TIMER			TIM4
+#define HW_ICU_TIMER			    TIM4
 #define HW_ICU_TIM_CLK_EN()		RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM4, ENABLE)
-#define HW_ICU_DEV				ICUD4
-#define HW_ICU_CHANNEL			ICU_CHANNEL_1
-#define HW_ICU_GPIO_AF			GPIO_AF_TIM4
-#define HW_ICU_GPIO				GPIOB
-#define HW_ICU_PIN				6
+#define HW_ICU_DEV				    ICUD4
+#define HW_ICU_CHANNEL			  ICU_CHANNEL_1
+#define HW_ICU_GPIO_AF			  GPIO_AF_TIM4
+#define HW_ICU_GPIO				    GPIOB
+#define HW_ICU_PIN			  	  6
 
 // I2C Peripheral
-#define HW_I2C_DEV				I2CD2
+#define HW_I2C_DEV				  I2CD2
 #define HW_I2C_GPIO_AF			GPIO_AF_I2C2
 #define HW_I2C_SCL_PORT			GPIOB
 #define HW_I2C_SCL_PIN			10
