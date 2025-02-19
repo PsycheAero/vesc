@@ -46,13 +46,9 @@
 #define LED_RED_ON()			palSetPad(LED_RED_GPIO, LED_RED_PIN)
 #define LED_RED_OFF()			palClearPad(LED_RED_GPIO, LED_RED_PIN)
 
-#if defined(HW75_300_REV_2) || defined(HW75_300_REV_3)
-#define PHASE_FILTER_GPIO		GPIOC
-#define PHASE_FILTER_PIN		9
-#else
 #define PHASE_FILTER_GPIO		GPIOC
 #define PHASE_FILTER_PIN		11
-#endif
+
 #define PHASE_FILTER_ON()		palSetPad(PHASE_FILTER_GPIO, PHASE_FILTER_PIN)
 #define PHASE_FILTER_OFF()	palClearPad(PHASE_FILTER_GPIO, PHASE_FILTER_PIN)
 
@@ -166,25 +162,6 @@
 #define HW_UART_TX_PIN			10
 #define HW_UART_RX_PORT			GPIOB
 #define HW_UART_RX_PIN			11
-
-#if defined(HW75_300_REV_2) || defined(HW75_300_REV_3)
-// Permanent UART Peripheral (for NRF51)
-#define HW_UART_P_BAUD			115200
-#define HW_UART_P_DEV			  SD4
-#define HW_UART_P_GPIO_AF		GPIO_AF_UART4
-#define HW_UART_P_TX_PORT		GPIOC
-#define HW_UART_P_TX_PIN		10
-#define HW_UART_P_RX_PORT		GPIOC
-#define HW_UART_P_RX_PIN		11
-#endif
-
-#ifdef HW75_300_REV_3
-// NRF SWD
-#define NRF5x_SWDIO_GPIO		GPIOA
-#define NRF5x_SWDIO_PIN			15
-#define NRF5x_SWCLK_GPIO		GPIOB
-#define NRF5x_SWCLK_PIN			3
-#endif
 
 // ICU Peripheral for servo decoding
 #define HW_USE_SERVO_TIM4
