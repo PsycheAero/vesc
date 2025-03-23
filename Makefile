@@ -1,5 +1,5 @@
 # Makefile for Rootloader project
-.DEFAULT_GOAL := help
+.DEFAULT_GOAL := 75_300
 
 WHEREAMI := $(dir $(lastword $(MAKEFILE_LIST)))
 ROOT_DIR := $(realpath $(WHEREAMI)/ )
@@ -84,7 +84,7 @@ help:
 	@echo ""
 	@echo "   [Big Hammer]"
 	@echo "     all_fw               - Build firmware for all boards"
-	@echo "     all_fw_package       - Packaage firmware for boards in package list"
+	@echo "     all_fw_package       - Package firmware for boards in package list"
 	@echo ""
 	@echo "   [Unit Tests]"
 	@echo "     all_ut               - Build all unit tests"
