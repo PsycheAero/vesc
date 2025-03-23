@@ -637,6 +637,10 @@ void terminal_process_string(char *str) {
 		commands_printf("Current Measurement Range: %.1f A", (double)((V_REG / 2.0) / (CURRENT_AMP_GAIN * CURRENT_SHUNT_RES)));
 #endif
 
+#if defined (V_REG) && defined (CURRENT_HALL_SENS)
+		commands_printf("Current Measurement Range: %.1f A", (double)((V_REG / 2.0) / (CURRENT_HALL_SENS)));
+#endif
+
 #if defined (V_REG) && defined (VIN_R1) && defined(VIN_R2)
 		commands_printf("Voltage Measurement Range: %.1f V", (double)((V_REG / 4095.0) * 4095.0 * ((VIN_R1 + VIN_R2) / VIN_R2)));
 #endif

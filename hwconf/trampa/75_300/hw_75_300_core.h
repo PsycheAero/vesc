@@ -116,11 +116,8 @@
 #ifndef VIN_R2
 #define VIN_R2					4700.0
 #endif
-#ifndef CURRENT_AMP_GAIN
-#define CURRENT_AMP_GAIN		20.0
-#endif
-#ifndef CURRENT_SHUNT_RES
-#define CURRENT_SHUNT_RES		(0.0005 / 3.0)
+#ifndef CURRENT_HALL_SENS
+#define CURRENT_HALL_SENS	0.0165 // sensitivity in mV/A
 #endif
 
 // Input voltage
