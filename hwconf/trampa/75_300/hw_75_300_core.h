@@ -227,10 +227,10 @@
 
 // Default setting overrides
 #ifndef MCCONF_L_MIN_VOLTAGE
-#define MCCONF_L_MIN_VOLTAGE			12.0		// Minimum input voltage
+#define MCCONF_L_MIN_VOLTAGE		  1.0		// Minimum input voltage
 #endif
 #ifndef MCCONF_L_MAX_VOLTAGE
-#define MCCONF_L_MAX_VOLTAGE			72.0	// Maximum input voltage
+#define MCCONF_L_MAX_VOLTAGE			420.0	// Maximum input voltage
 #endif
 #ifndef MCCONF_DEFAULT_MOTOR_TYPE
 #define MCCONF_DEFAULT_MOTOR_TYPE		MOTOR_TYPE_FOC
