@@ -36,15 +36,15 @@
 #define HW_HAS_PHASE_FILTERS
 
 // Macros
-#define LED_GREEN_GPIO		GPIOB
-#define LED_GREEN_PIN			5
-#define LED_RED_GPIO			GPIOB
+#define LED_GREEN_GPIO		GPIOA
+#define LED_GREEN_PIN			6
+#define LED_RED_GPIO			GPIOA
 #define LED_RED_PIN				7
 
-#define LED_GREEN_ON()		palSetPad(LED_GREEN_GPIO, LED_GREEN_PIN)
-#define LED_GREEN_OFF()		palClearPad(LED_GREEN_GPIO, LED_GREEN_PIN)
-#define LED_RED_ON()			palSetPad(LED_RED_GPIO, LED_RED_PIN)
-#define LED_RED_OFF()			palClearPad(LED_RED_GPIO, LED_RED_PIN)
+#define LED_GREEN_OFF()		palSetPad(LED_GREEN_GPIO, LED_GREEN_PIN)
+#define LED_GREEN_ON()		palClearPad(LED_GREEN_GPIO, LED_GREEN_PIN)
+#define LED_RED_OFF()			palSetPad(LED_RED_GPIO, LED_RED_PIN)
+#define LED_RED_ON()			palClearPad(LED_RED_GPIO, LED_RED_PIN)
 
 #define PHASE_FILTER_GPIO		GPIOC
 #define PHASE_FILTER_PIN		11
