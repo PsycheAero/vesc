@@ -114,14 +114,14 @@
 #define VIN_R1					100000.0
 #endif
 #ifndef VIN_R2
-#define VIN_R2					4700.0
+#define VIN_R2					687.5 // 1k in parallel with 2k2
 #endif
 #ifndef CURRENT_HALL_SENS
 #define CURRENT_HALL_SENS	0.0165 // sensitivity in mV/A
 #endif
 
 // Input voltage
-#define GET_INPUT_VOLTAGE()		60.0
+#define GET_INPUT_VOLTAGE()		((V_REG / 4095.0) * (float)ADC_Value[ADC_IND_VIN_SENS] * ((VIN_R1 + VIN_R2) / VIN_R2))
 
 // NTC Termistors
 #define NTC_RES(adc_val)		((4095.0 * 10000.0) / adc_val - 10000.0)
@@ -223,7 +223,7 @@
 
 // Default setting overrides
 #ifndef MCCONF_L_MIN_VOLTAGE
-#define MCCONF_L_MIN_VOLTAGE		  1.0		// Minimum input voltage
+#define MCCONF_L_MIN_VOLTAGE		  11.0		// Minimum input voltage
 #endif
 #ifndef MCCONF_L_MAX_VOLTAGE
 #define MCCONF_L_MAX_VOLTAGE			420.0	// Maximum input voltage
@@ -251,7 +251,7 @@
 #define HW_LIM_CURRENT			-400.0, 400.0
 #define HW_LIM_CURRENT_IN		-400.0, 400.0
 #define HW_LIM_CURRENT_ABS		0.0, 480.0
-#define HW_LIM_VIN				11.0, 72.0
+#define HW_LIM_VIN				11.0, 420.0
 #define HW_LIM_ERPM				-200e3, 200e3
 #define HW_LIM_DUTY_MIN			0.0, 0.1
 #define HW_LIM_DUTY_MAX			0.0, 0.99
