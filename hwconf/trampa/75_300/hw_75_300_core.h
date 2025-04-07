@@ -34,6 +34,7 @@
 #define HW_HAS_3_SHUNTS
 #define HW_HAS_PHASE_SHUNTS
 #define HW_HAS_PHASE_FILTERS
+#define INVERTED_SHUNT_POLARITY
 
 // Macros
 #define LED_GREEN_GPIO		GPIOA
@@ -117,7 +118,8 @@
 #define VIN_R2					687.5 // 1k in parallel with 2k2
 #endif
 #ifndef CURRENT_HALL_SENS
-#define CURRENT_HALL_SENS	0.0165 // sensitivity in mV/A
+// #define CURRENT_HALL_SENS	0.0165 // sensitivity in mV/A --> 100A
+#define CURRENT_HALL_SENS	0.00825 // sensitivity in mV/A --> 200A
 #endif
 
 // Input voltage
