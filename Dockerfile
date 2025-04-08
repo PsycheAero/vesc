@@ -10,7 +10,7 @@ WORKDIR /home/vesc
 # Install required packages and tools
 RUN apt-get update && \
     apt-get install -y python3 python3-pip && \
-    apt-get install -y git build-essential libgl-dev libxcb-xinerama0 wget git-gui stlink-tools openocd
+    apt-get install -y git build-essential libgl-dev libxcb-xinerama0 wget git-gui stlink-tools openocd cmake gdb-arm-none-eabi
 
 # Set Python 3 as default
 RUN ln -s /usr/bin/python3 /usr/bin/python
@@ -22,6 +22,3 @@ RUN ln -s /usr/bin/python3 /usr/bin/python
 
 # Clean up to reduce image size and remove unnecessary package lists
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
-
-# Verify installation
-CMD ["python", "--version"]
