@@ -126,10 +126,10 @@
 #define GET_INPUT_VOLTAGE()		((V_REG / 4095.0) * (float)ADC_Value[ADC_IND_VIN_SENS] * ((VIN_R1 + VIN_R2) / VIN_R2))
 
 // NTC Termistors
-#define NTC_RES(adc_val)		((4095.0 * 10000.0) / adc_val - 10000.0)
-#define NTC_TEMP(adc_ind)		50.0
+#define NTC_RES(adc_val)		((4095.0 * 5000.0) / (float)adc_val - 5000.0)
+#define NTC_TEMP(adc_ind)		hw75_300_get_temp()
 
-#define NTC_RES_MOTOR(adc_val)	(10000.0 / ((4095.0 / (float)adc_val) - 1.0)) // Motor temp sensor on low side
+#define NTC_RES_MOTOR(adc_val)	(1000.0  * 4095.0 / (float)adc_val - 1000.0) // Motor temp sensor on low side
 #define NTC_TEMP_MOTOR(beta)	60.0
 
 // Voltage on ADC channel
