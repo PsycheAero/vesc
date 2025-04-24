@@ -197,6 +197,10 @@
 #define HW_ENC_TIM_ISR_CH		TIM3_IRQn
 #define HW_ENC_TIM_ISR_VEC		TIM3_IRQHandler
 
+// Sin/Cos Encoder signals
+#define ENCODER_SIN_VOLTS				ADC_VOLTS(ADC_IND_EXT)
+#define ENCODER_COS_VOLTS				ADC_VOLTS(ADC_IND_EXT2)
+
 // SPI pins
 #define HW_SPI_DEV				SPID1
 #define HW_SPI_GPIO_AF			GPIO_AF_SPI1
